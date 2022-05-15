@@ -21,7 +21,6 @@ dependencies {
     compileJava.options.encoding = 'UTF-8'
 
     implementation("cn.nukkit:nukkit:1.0-SNAPSHOT")
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     extraLibs fileTree(dir: 'lib', include: ['*.jar'])
     configurations.implementation.extendsFrom(configurations.extraLibs)
