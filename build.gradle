@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+}
+
+group 'me.cutenyami'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name 'opencollab-repo-snapshot'
+        url 'https://repo.opencollab.dev/maven-snapshots/'
+    }
+}
+
+configurations {
+    extraLibs
+}
+
+dependencies {
+    compileJava.options.encoding = 'UTF-8'
+
+    implementation("cn.nukkit:nukkit:1.0-SNAPSHOT")
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    extraLibs fileTree(dir: 'lib', include: ['*.jar'])
+    configurations.implementation.extendsFrom(configurations.extraLibs)
+}
+
+jar {
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+def targetJavaVersion = 8
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release = targetJavaVersion
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

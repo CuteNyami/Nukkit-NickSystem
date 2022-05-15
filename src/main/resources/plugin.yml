@@ -1,0 +1,8 @@
+name: NickSystem
+main: me.cutenyami.nicksystem.NickSystem
+version: "1.0.0"
+api: ["1.0.0"]
+
+load: POSTWORLD
+author: CuteNyami
+description: NickSystem for TykoPvP
