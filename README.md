@@ -10,9 +10,9 @@ Simple NickSystem for Nukkit server!
 * /nick reset
 
 ### - HowToUse
-You will find a file called mysql.json in plugins/NickSystem/ you need to file in you account data of MySQL 
+You will find a file called mysql.json in plugins/NickSystem/ you need to file in you account data of MySQL.
 
-then it will look like that!
+Then it will look like that:
 ```json
 {
   "profile": {
