@@ -24,3 +24,21 @@ Then it will look like that:
   }
 }
 ```
+  
+### You need luckchat or any chat formatting plugin to use the NickSystem!
+
+config of LuckChat:
+
+```json
+FirstRun: false
+ChatAsync: true
+Chat:
+ default: '[%disname%] >> %msg%'
+ admin: '[%disname%] >> %msg%'
+NameTag:
+  update: 20
+  updateAsync: true
+  default: '%disname%'
+  admin: '%disname%'
+```
+
