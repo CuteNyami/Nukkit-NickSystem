@@ -29,7 +29,7 @@ Then it will look like that:
 
 config of LuckChat:
 
-```json
+```yml
 FirstRun: false
 ChatAsync: true
 Chat:
