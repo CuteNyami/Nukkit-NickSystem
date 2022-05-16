@@ -42,3 +42,6 @@ NameTag:
   admin: '%disname%'
 ```
 
+#### Download of LuckChat
+* https://cloudburstmc.org/resources/luckchat.213/
+
